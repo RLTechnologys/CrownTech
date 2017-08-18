@@ -17,51 +17,123 @@
 <link href=assets/css/colors/red.css rel=stylesheet>
 <link href=assets/css/responsive.css rel=stylesheet>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link href=assets/css/font-awesome.min.css rel=stylesheet>
 <header class="affix-top navbar navbar-default" data-offset-top=400 data-spy=affix id=header>
-    <div class=container><a href=index.html class=site-logo alt=Mea><h2>CrownTech</h2></a>
+    <div class=container>
+        <a href=index.html class=site-logo alt=Mea>
+            <h2>CrownTech</h2>
+        </a>
         <nav class=okayNav id=nav-main role=navigation>
             <ul class="nav navbar-nav">
                 <li class="dropdown sub-menu"><a href=#about class="dropdown-toggle nav-link" alt=Mea type=button>About Us</a>
                     <li class="dropdown sub-menu"><a href=#services class="dropdown-toggle nav-link" alt=Mea type=button>Our Services</a>
                         <li class="dropdown sub-menu"><a href=#quotes class="dropdown-toggle nav-link" alt=Mea type=button>Testimonials</a>
-                            <li class="dropdown sub-menu"><a href=#clients class="dropdown-toggle nav-link" alt=Mea type=button>Our Clients</a>
+                            <li class="dropdown sub-menu"><a href=clients.html class="dropdown-toggle nav-link" alt=Mea type=button>Our Clients</a>
                                 <li class="dropdown sub-menu"><a href=#contact class="dropdown-toggle nav-link" alt=Mea type=button>Contact Us</a></ul>
-            <ul class=wpb-mobile-menu>
+            <ul
+                class=wpb-mobile-menu>
                 <li><a href=#about>About Us</a>
                     <li><a href=#services>Our Services</a>
                         <li><a href=#quotes>Testimonials</a>
-                            <li><a href=#clients>Our Clients</a>
+                            <li><a href="clients.html">Our Clients</a>
                                 <li><a href=#contact>Contact Us</a></ul>
         </nav>
     </div>
 </header>
-<div class="carousel carousel-fade slide" id=main-slide data-ride=carousel>
-    <div class=carousel-inner>
-        <div class="item active"><img alt=slider src=assets/images/slider/slider-bg2.jpg class=img-responsive>
-            <div class=slider-content>
-                <div class=container>
-                    <div class=row>
-                        <div class="col-md-12 text-center">
+<!-- Main Carousel Section -->
+<div id="main-slide" class="carousel slide carousel-fade" data-ride="carousel">
+    
+       <div class="carousel-inner">
+           <div class="item">
+               <img class="img-responsive" src="assets/images/slider/slider-bg4.jpg" alt="slider">
+               <div class="slider-content">
+                   <div class="container">
+                       <div class="row">
+                           <div class="col-md-12 text-left">
                             <h1 class="animated wow fadeIn hero-heading" data-wow-delay=.7s>CrownTech Computer Services</h1>
                             <h5 class="animated5 hero-sub-heading">Yes! We Can do That! | 365 - 24 - 7 I.T. Services</h5>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                               <a href="javascript:void(0)" class="animated fadeInUp wow btn btn-common" data-wow-delay=".9s"><i class="material-icons">&#xE90F;</i> Explore<div class="ripple-container"></div></a>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div> 
+           <div class="item active">
+               <img class="img-responsive" src="assets/images/slider/slider-bg2.jpg" alt="slider">
+               <div class="slider-content">
+                   <div class="container">
+                       <div class="row">
+                           <div class="col-md-12 text-center">
+                            <h1 class="animated wow fadeIn hero-heading" data-wow-delay=.7s>CrownTech Computer Services</h1>
+                            <h5 class="animated5 hero-sub-heading hero-sub-heading">Yes! We Can do That! | 365 - 24 - 7 I.T. Services</h5>
+                               <a href="javascript:void(0)" class="animated6 btn btn-lg btn-common"><i class="fa fa-phone" aria-hidden="true"></i>
+                                Give Us A Call</a>
+                                   <a href="#about" class="animated6 btn btn-lg btn-raised btn-default"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                    <div class="ripple-container"></div>Learn More</a>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="item">
+               <img class="img-responsive" src="assets/images/slider/slider-bg3.jpg" alt="slider">
+               <div class="slider-content">
+                   <div class="container">
+                       <div class="row">
+                           <div class="col-md-12 text-center">
+                               <h1 class="animated wow bounceInUp hero-heading" data-wow-delay=".6s">Cutting Edge Features</h1>
+                               <h5 class="animated4 hero-sub-heading">Material Design - Bootstrap - HTML5 - CSS3 - Responsive </h5>
+                               <a href="javascript:void(0)" class="animated4 btn btn-common"><i class="material-icons">&#xE8F4;</i> Learn More</a>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div> 
+       </div> 
+    
+       <a class="left carousel-control" href="#main-slide" data-slide="prev">
+       <span><i class="fa fa-angle-left" data-ripple-color="#F0F0F0"><div class="ripple-container"></div></i></span>
+       </a>
+       <a class="right carousel-control" href="#main-slide" data-slide="next">
+       <span><i class="fa fa-angle-right" data-ripple-color="#F0F0F0"><div class="ripple-container"></div></i></span>
+       </a>
+   </div>
+   <!-- Main Carousel Section End-->
+
 <section class="section-padding mea-about-section" id=about>
     <div class=container>
         <div class=row>
             <div class="animated wow col-md-6 mea-title-section slideInLeft" data-wow-delay=.2s>
                 <h1 class=section-titile-bg>About Us</h1>
-                <h1 class=section-title>Crowntech Computer Services</h1></div>
+                <h1 class=section-title>Crowntech Computer Services</h1>
+            </div>
             <div class="animated wow col-md-6 slideInRight mea-section-quote" data-wow-delay=.2s>
                 <blockquote>
-                    <p>Offering hourly and monthly support program options, CrownTech can meet all of your technology needs on a flexible basis that makes sense for both your growing business and your limited budget. We know Information Technology as well as you know your industry and customers. More importantly, we take the time to understand your business model. This allows you to focus on achieving your financial goals while we make sure that your systems keep up with the demands of your business. Our signature combination of clever cost-reduction strategies and the peace of mind that you will be supported no matter which technical route you take is the reason why CrownTech will quickly become a trusted extension of your team.</blockquote>
+                    <p>Offering hourly and monthly support program options, CrownTech can meet all of your technology needs
+                        on a flexible basis that makes sense for both your growing business and your limited budget. We know
+                        Information Technology as well as you know your industry and customers. More importantly, we take
+                        the time to understand your business model. This allows you to focus on achieving your financial
+                        goals while we make sure that your systems keep up with the demands of your business. Our signature
+                        combination of clever cost-reduction strategies and the peace of mind that you will be supported
+                        no matter which technical route you take is the reason why CrownTech will quickly become a trusted
+                        extension of your team.</blockquote>
+            </div>
+        </div>
+        <div class=row>
+            <div class="animated wow col-md-6 mea-title-section slideInLeft" data-wow-delay=.2s>
+                <h1 class=section-title>Why use CrownTech Computer Services?</h1>
+            </div>
+            <div class="animated wow col-md-6 slideInLeft mea-section-quote" data-wow-delay=.2s>
+                <blockquote>
+                    <p>Offering hourly and monthly support program options, CrownTech can meet all of your technology needs
+                        on a flexible basis that makes sense for both your growing business and your limited budget. We know
+                        Information Technology as well as you know your industry and customers. More importantly, we take
+                        the time to understand your business model. This allows you to focus on achieving your financial
+                        goals while we make sure that your systems keep up with the demands of your business. Our signature
+                        combination of clever cost-reduction strategies and the peace of mind that you will be supported
+                        no matter which technical route you take is the reason why CrownTech will quickly become a trusted
+                        extension of your team.</blockquote>
             </div>
         </div>
     </div>
@@ -71,10 +143,8 @@
         <div class=row>
             <div class="animated wow col-md-6 mea-title-section slideInLeft" data-wow-delay=.2s>
                 <h1 class=section-titile-bg>Services</h1>
-                <h1 class=section-title>Services</h1></div>
-            <br>
-            <br>
-        </div>
+                <h1 class=section-title>Services</h1>
+            </div><br><br></div>
         <div class="row mt-100">
             <div class="col-md-4 animated fadeInUp single-service-widget wow" data-wow-delay=.3s>
                 <div class=media>
@@ -103,10 +173,7 @@
                         <h2 class=subtitle>Hardware/Software and Service Sourcing</h2>
                         <li>Numerous Suppliers and Service Providers
                             <li>Core Software and Business-Specific Applications
-                                <li>Voice/Data Service Procurement</li>
-                                <br>
-                                <br>
-                    </div>
+                                <li>Voice/Data Service Procurement</li><br><br></div>
                 </div>
             </div>
             <div class="col-md-4 animated fadeInUp single-service-widget wow" data-wow-delay=.7s>
@@ -114,7 +181,10 @@
                     <div class=media-left><i class="fa fa-phone" aria-hidden=true></i></div>
                     <div class=media-body>
                         <h2 class=subtitle>3XC Phone Systems</h2>
-                        <p>3CX Phone System for Windows is an award-winning software-based IP PBX that replaces traditional proprietary hardware PBX. It is based on the SIP standard and supports most popular SIP phones, VoIP Gateways, VoIP service providers and PSTN phone lines. It is easy to manage by system administrators as it integrates well with Windows Network infrastructure.</div>
+                        <p>3CX Phone System for Windows is an award-winning software-based IP PBX that replaces traditional
+                            proprietary hardware PBX. It is based on the SIP standard and supports most popular SIP phones,
+                            VoIP Gateways, VoIP service providers and PSTN phone lines. It is easy to manage by system administrators
+                            as it integrates well with Windows Network infrastructure.</div>
                 </div>
             </div>
             <div class="col-md-4 animated fadeInUp single-service-widget wow" data-wow-delay=.8s>
@@ -141,7 +211,7 @@
             </div>
         </div>
     </div>
-    <center><a href=services.html class="btn btn-common animated4"><i class="fa fa-1x fa-info-circle"aria-hidden=true></i> View More</a></center>
+    <center><a href=services.html class="btn btn-common animated4"><i class="fa fa-1x fa-info-circle"aria-hidden=true></i> View Complete List of Services</a></center>
 </section>
 <section class="section-padding mea-testimonial-section" id=quotes>
     <div class=container>
@@ -169,7 +239,8 @@
                     <div class=item>
                         <div class=testomonial-quote>
                             <blockquote>
-                                <p>"Servers and networking, surveillance and phones, website development or custom software solutions - CrownTech has us covered from A to Z."</blockquote>
+                                <p>"Servers and networking, surveillance and phones, website development or custom software
+                                    solutions - CrownTech has us covered from A to Z."</blockquote>
                         </div>
                         <div class=testimonial-author>
                             <div class=media>
@@ -182,7 +253,10 @@
                     <div class=item>
                         <div class=testomonial-quote>
                             <blockquote>
-                                <p>“Besides their amazing ethics, what became the greatest asset for us was their ability to troubleshoot and solve problems many times remotely. With CrownTech most of our time sensitive issues are corrected immediately no matter the time or the city I happened to be in."</blockquote>
+                                <p>“Besides their amazing ethics, what became the greatest asset for us was their ability to
+                                    troubleshoot and solve problems many times remotely. With CrownTech most of our time
+                                    sensitive issues are corrected immediately no matter the time or the city I happened
+                                    to be in."</blockquote>
                         </div>
                         <div class=testimonial-author>
                             <div class=media>
@@ -197,154 +271,66 @@
         </div>
     </div>
 </section>
-<section class="section-padding section-dark mea-clients-section" id=clients>
-    <div class=container>
-        <div class=row>
-            <div class="animated wow col-md-6 mea-title-section slideInLeft" data-wow-delay=.2s>
-                <h1 class=section-titile-bg>Our Clients</h1>
-                <h1 class=section-title>Our Clients</h1>
-                <div class="mt-100 clearfix section-image"><img alt="Thumbs Up Icon" src=assets/images/section-image2.png class="img-responsive mt-100"></div>
-            </div>
-            <div class="animated wow col-md-6 slideInRight clearfix client-container mt-40" data-wow-delay=.2s>
-                <div class=col-md-4>
-                    <div class="single-client-image active"><img alt src=assets/images/clients/client1.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client2.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client3.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client4.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client5.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client6.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client7.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client8.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client9.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client10.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client11.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client12.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client13.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client14.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client15.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client16.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client17.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client18.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client19.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client20.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client21.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client22.png class=img-responsive></div>
-                </div>
-                <div class=col-md-4>
-                    <div class=single-client-image><img alt src=assets/images/clients/client23.png class=img-responsive></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section-padding mea-contact-section" id=contact>
+<section class="section-padding mea-contact-section section-dark" id=contact>
     <div class=container>
         <div class=row>
             <div class=col-md-12>
-                <h1 class="animated wow slideInRight contact-title" data-wow-delay=.3s>Contact Us</h1></div>
+                <h1 class="animated wow slideInRight contact-title" data-wow-delay=.3s>Contact Us</h1>
+            </div>
         </div>
         <div class="row mt-50">
             <div class="col-md-6 contact-widget-section">
                 <div class="animated wow col-md-6 fadeInUp" data-wow-delay=.2s>
                     <div class=single-contact-widget><i class=material-icons></i>
-                        <h3>Address</h3><address><p>4435 Berkshire Circle<p>Knoxville<p>TN 27912</address></div>
+                        <h3>Address</h3>
+                        <address>
+                            <p>4435 Berkshire Circle
+                                <p>Knoxville
+                                    <p>TN 27912</address>
+                    </div>
                 </div>
                 <div class="animated wow col-md-6 fadeInUp" data-wow-delay=.3s>
                     <div class=single-contact-widget><i class=material-icons></i>
-                        <h3>Phone</h3><address><a href=tel:7708880901>(770) 888-0901</a></address></div>
-                </div>
-                <div class="animated wow col-md-6 fadeInUp" data-wow-delay=.4s>
-                    <div class=single-contact-widget><i class=material-icons></i>
-                        <h3>Email</h3><address><p>mail@mea.com<p>support@mea.com</address></div>
-                </div>
-                <div class="animated wow col-md-6 fadeInUp" data-wow-delay=.5s>
-                    <div class=single-contact-widget><i class=material-icons></i>
-                        <h3>Opening Hours</h3><address><p>Mon - Fri: 8 AM - 3 PM<p>Sat: 8 AM - 12 PM<p>Sun: Closed</address></div>
+                        <h3>Phone</h3>
+                        <address><a href=tel:7708880901>(770) 888-0901</a></address>
+                    </div>
                 </div>
             </div>
             <div class="animated wow fadeInUp col-md-5 col-md-offset-1" data-wow-delay=.4s>
                 <form class=shake data-toggle=validator id=contactForm method=post name=contact-form role=form>
-                    <div class="form-group label-floating">
-                        <label class=control-label for=name>Name</label>
-                        <input class=form-control data-error="Please enter your name" id=name name=name required>
+                    <div class="form-group label-floating"><label class=control-label for=name>Name</label><input class=form-control data-error="Please enter your name"
+                            id=name name=name required>
                         <div class="help-block with-errors"></div>
                     </div>
-                    <div class="form-group label-floating">
-                        <label class=control-label for=email>Email</label>
-                        <input class=form-control data-error="Please enter your Email" id=email name=email required type=email>
+                    <div class="form-group label-floating"><label class=control-label for=email>Email</label><input class=form-control data-error="Please enter your Email"
+                            id=email name=email required type=email>
                         <div class="help-block with-errors"></div>
                     </div>
-                    <div class="form-group label-floating">
-                        <label class=control-label for=msgSubject>Subject</label>
-                        <input class=form-control data-error="Please enter your message subject" id=msg_subject name=subject required>
+                    <div class="form-group label-floating"><label class=control-label for=msgSubject>Subject</label><input class=form-control data-error="Please enter your message subject"
+                            id=msg_subject name=subject required>
                         <div class="help-block with-errors"></div>
                     </div>
-                    <div class="form-group label-floating">
-                        <label class=control-label for=message>Message</label>
-                        <textarea class=form-control data-error="Write your message" id=message name=message required rows=3></textarea>
+                    <div class="form-group label-floating"><label class=control-label for=message>Message</label><textarea class=form-control data-error="Write your message"
+                            id=message name=message required rows=3></textarea>
                         <div class="help-block with-errors"></div>
                     </div>
-                    <div class="form-submit mt-20">
-                        <button class="btn btn-common" id=form-submit type=submit><i class=material-icons></i> Send Message</button>
-                        <div class="text-center h3 hidden" id=msgSubmit></div>
-                        <div class=clearfix></div>
-                    </div>
-                </form>
+                    <div class="form-submit mt-20"><button class="btn btn-common" id=form-submit type=submit><i class=material-icons></i> Send Message</button>
+                        <div
+                            class="text-center h3 hidden" id=msgSubmit></div>
+                    <div class=clearfix></div>
             </div>
+            </form>
         </div>
+    </div>
     </div>
 </section>
 <footer class=mea-footer-section>
     <div class=footer-copyright-section>
         <div class=container>
             <div class=row>
-                <div class=col-md-12>
-                    <p>©
-                        <script>
-                            document.write((new Date).getFullYear())
-                        </script> RL Technology. All Rights Reserved.</div>
+                <div class="center col-md-12">
+                    <p>©<script>document.write((new Date).getFullYear())</script> CrownTech. All Rights Reserved.</p>
+                </div>
             </div>
         </div>
     </div>
