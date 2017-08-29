@@ -1,1 +1,147 @@
-!function(t){"function"==typeof define&&define.amd?define(["jquery"],t):"object"==typeof exports?module.exports=t(require("jquery")):t(jQuery)}(function(t){function e(){var e,i,n={height:d.innerHeight,width:d.innerWidth};return n.height||!(e=f.compatMode)&&t.support.boxModel||(n={height:(i="CSS1Compat"===e?c:f.body).clientHeight,width:i.clientWidth}),n}function i(){return{top:d.pageYOffset||c.scrollTop||f.body.scrollTop,left:d.pageXOffset||c.scrollLeft||f.body.scrollLeft}}function n(){var n,l=[],f=0;if(t.each(r,function(t,e){var i=e.data.selector,n=e.$element;l.push(i?n.find(i):n)}),n=l.length)for(o=o||e(),h=h||i();f<n;f++)if(t.contains(c,l[f][0])){var d,a,u,p=t(l[f]),s={height:p.height(),width:p.width()},g=p.offset(),v=p.data("inview");if(!h||!o)return;g.top+s.height>h.top&&g.top<h.top+o.height&&g.left+s.width>h.left&&g.left<h.left+o.width?(u=(d=h.left>g.left?"right":h.left+o.width<g.left+s.width?"left":"both")+"-"+(a=h.top>g.top?"bottom":h.top+o.height<g.top+s.height?"top":"both"),v&&v===u||p.data("inview",u).trigger("inview",[!0,d,a])):v&&p.data("inview",!1).trigger("inview",[!1])}}var o,h,l,r={},f=document,d=window,c=f.documentElement,a=t.expando;t.event.special.inview={add:function(e){r[e.guid+"-"+this[a]]={data:e,$element:t(this)},l||t.isEmptyObject(r)||(l=setInterval(n,250))},remove:function(e){try{delete r[e.guid+"-"+this[a]]}catch(t){}t.isEmptyObject(r)&&(clearInterval(l),l=null)}},t(d).bind("scroll resize scrollstop",function(){o=h=null}),!c.addEventListener&&c.attachEvent&&c.attachEvent("onfocusin",function(){h=null})});
+/**
+ * author Christopher Blum
+ *    - based on the idea of Remy Sharp, http://remysharp.com/2009/01/26/element-in-view-event-plugin/
+ *    - forked from http://github.com/zuk/jquery.inview/
+ */
+(function (factory) {
+  if (typeof define == 'function' && define.amd) {
+    // AMD
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+    // Node, CommonJS
+    module.exports = factory(require('jquery'));
+  } else {
+      // Browser globals
+    factory(jQuery);
+  }
+}(function ($) {
+  var inviewObjects = {}, viewportSize, viewportOffset,
+      d = document, w = window, documentElement = d.documentElement, expando = $.expando, timer;
+
+  $.event.special.inview = {
+    add: function(data) {
+      inviewObjects[data.guid + "-" + this[expando]] = { data: data, $element: $(this) };
+
+      // Use setInterval in order to also make sure this captures elements within
+      // "overflow:scroll" elements or elements that appeared in the dom tree due to
+      // dom manipulation and reflow
+      // old: $(window).scroll(checkInView);
+      //
+      // By the way, iOS (iPad, iPhone, ...) seems to not execute, or at least delays
+      // intervals while the user scrolls. Therefore the inview event might fire a bit late there
+      //
+      // Don't waste cycles with an interval until we get at least one element that
+      // has bound to the inview event.
+      if (!timer && !$.isEmptyObject(inviewObjects)) {
+         timer = setInterval(checkInView, 250);
+      }
+    },
+
+    remove: function(data) {
+      try { delete inviewObjects[data.guid + "-" + this[expando]]; } catch(e) {}
+
+      // Clear interval when we no longer have any elements listening
+      if ($.isEmptyObject(inviewObjects)) {
+         clearInterval(timer);
+         timer = null;
+      }
+    }
+  };
+
+  function getViewportSize() {
+    var mode, domObject, size = { height: w.innerHeight, width: w.innerWidth };
+
+    // if this is correct then return it. iPad has compat Mode, so will
+    // go into check clientHeight/clientWidth (which has the wrong value).
+    if (!size.height) {
+      mode = d.compatMode;
+      if (mode || !$.support.boxModel) { // IE, Gecko
+        domObject = mode === 'CSS1Compat' ?
+          documentElement : // Standards
+          d.body; // Quirks
+        size = {
+          height: domObject.clientHeight,
+          width:  domObject.clientWidth
+        };
+      }
+    }
+
+    return size;
+  }
+
+  function getViewportOffset() {
+    return {
+      top:  w.pageYOffset || documentElement.scrollTop   || d.body.scrollTop,
+      left: w.pageXOffset || documentElement.scrollLeft  || d.body.scrollLeft
+    };
+  }
+
+  function checkInView() {
+    var $elements = [], elementsLength, i = 0;
+
+    $.each(inviewObjects, function(i, inviewObject) {
+      var selector  = inviewObject.data.selector,
+          $element  = inviewObject.$element;
+      $elements.push(selector ? $element.find(selector) : $element);
+    });
+
+    elementsLength = $elements.length;
+    if (elementsLength) {
+      viewportSize   = viewportSize   || getViewportSize();
+      viewportOffset = viewportOffset || getViewportOffset();
+
+      for (; i<elementsLength; i++) {
+        // Ignore elements that are not in the DOM tree
+        if (!$.contains(documentElement, $elements[i][0])) {
+          continue;
+        }
+
+        var $element      = $($elements[i]),
+            elementSize   = { height: $element.height(), width: $element.width() },
+            elementOffset = $element.offset(),
+            inView        = $element.data('inview'),
+            visiblePartX,
+            visiblePartY,
+            visiblePartsMerged;
+
+        // Don't ask me why because I haven't figured out yet:
+        // viewportOffset and viewportSize are sometimes suddenly null in Firefox 5.
+        // Even though it sounds weird:
+        // It seems that the execution of this function is interferred by the onresize/onscroll event
+        // where viewportOffset and viewportSize are unset
+        if (!viewportOffset || !viewportSize) {
+          return;
+        }
+
+        if (elementOffset.top + elementSize.height > viewportOffset.top &&
+            elementOffset.top < viewportOffset.top + viewportSize.height &&
+            elementOffset.left + elementSize.width > viewportOffset.left &&
+            elementOffset.left < viewportOffset.left + viewportSize.width) {
+          visiblePartX = (viewportOffset.left > elementOffset.left ?
+            'right' : (viewportOffset.left + viewportSize.width) < (elementOffset.left + elementSize.width) ?
+            'left' : 'both');
+          visiblePartY = (viewportOffset.top > elementOffset.top ?
+            'bottom' : (viewportOffset.top + viewportSize.height) < (elementOffset.top + elementSize.height) ?
+            'top' : 'both');
+          visiblePartsMerged = visiblePartX + "-" + visiblePartY;
+          if (!inView || inView !== visiblePartsMerged) {
+            $element.data('inview', visiblePartsMerged).trigger('inview', [true, visiblePartX, visiblePartY]);
+          }
+        } else if (inView) {
+          $element.data('inview', false).trigger('inview', [false]);
+        }
+      }
+    }
+  }
+
+  $(w).bind("scroll resize scrollstop", function() {
+    viewportSize = viewportOffset = null;
+  });
+
+  // IE < 9 scrolls to focused elements without firing the "scroll" event
+  if (!documentElement.addEventListener && documentElement.attachEvent) {
+    documentElement.attachEvent("onfocusin", function() {
+      viewportOffset = null;
+    });
+  }
+}));
